@@ -25,7 +25,7 @@ namespace block_screensaver_form.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
         public int stime_interval {
             get {
                 return ((int)(this["stime_interval"]));

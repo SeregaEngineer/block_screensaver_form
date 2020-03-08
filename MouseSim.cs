@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace block_screensaver_form
 {
-   
+
     class MouseSim
     {
-        
+
         [DllImport("user32.dll", SetLastError = true)]
         static extern uint SendInput(uint nInputs, ref INPUT pInputs, int cbSize);
 
@@ -123,11 +123,11 @@ namespace block_screensaver_form
         [DllImport("user32.dll")]
         static extern int GetSystemMetrics(SystemMetric smIndex);
 
-    
+
 
         public static void MouseMove()
         {
-           
+
             int CursorX = Cursor.Position.X;
             int CursorY = Cursor.Position.Y;
 
@@ -145,7 +145,7 @@ namespace block_screensaver_form
 
 
 
-       static int CalculateAbsoluteCoordinateX(int x)
+        static int CalculateAbsoluteCoordinateX(int x)
         {
             if (x < 5)
             {
@@ -158,17 +158,17 @@ namespace block_screensaver_form
 
         static int CalculateAbsoluteCoordinateY(int y)
         {
-                if (y < 5)
+            if (y < 5)
             {
                 Size resolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Size;
                 return y = ((resolution.Height / 2) * 65536) / GetSystemMetrics(SystemMetric.SM_CYSCREEN);
             }
 
-                return (y * 65536) / GetSystemMetrics(SystemMetric.SM_CYSCREEN);
+            return (y * 65536) / GetSystemMetrics(SystemMetric.SM_CYSCREEN);
         }
 
 
-        
+
 
 
 
