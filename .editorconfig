@@ -1,0 +1,13 @@
+﻿[*.cs]
+
+# CS1574: Комментарий XML содержит атрибут cref, который не удалось разрешить
+dotnet_diagnostic.CS1574.severity = none
+
+# IDE0049: Упрощение имен
+dotnet_style_predefined_type_for_locals_parameters_members = true:none
+
+# IDE0049: Упрощение имен
+dotnet_style_predefined_type_for_member_access = true:none
+
+# IDE0055: Исправить форматирование
+dotnet_diagnostic.IDE0055.severity = none
