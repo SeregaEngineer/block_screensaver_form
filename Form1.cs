@@ -14,33 +14,46 @@ namespace block_screensaver_form
 {
     public partial class Form1 : Form
     {
-        Timer timer;
+       Timer timer;
         bool flag = true;
-        int time_interval;
+       // int time_interval;
+      
 
+        
 
 
         public Form1()
         {
-            textBox1.Text = time_interval.ToString();
+            
             InitializeComponent();
+            textBox1.Text = Properties.Settings.Default.stime_interval.ToString();
             timer = new Timer();
-
+           // timer.Interval = Convert.ToInt32(textBox1.Text) * 60000;
+            timer.Tick += Timer_Tick;
 
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            int CursorX = Cursor.Position.X;
-            int CursorY = Cursor.Position.Y;
+            
+            if (last() > 60)
+            {
+                //Console.WriteLine("Больше 65000");
+                //int CursorX = Cursor.Position.X;
+                //int CursorY = Cursor.Position.Y;
+                //Console.WriteLine(last().ToString());
+                //Console.WriteLine(CursorX.ToString());
+                //Console.WriteLine(CursorY.ToString());
+                MouseSim.MouseMove();
+            }
+           
 
-            Console.WriteLine(last().ToString());
-            Console.WriteLine(CursorX.ToString());
-            Console.WriteLine(CursorY.ToString());
 
-            //MouseSim.ClickRightMouseButton();
-            MouseSim.MouseMove();
+
         }
+            
+           
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -50,27 +63,29 @@ namespace block_screensaver_form
         private void ON_Click(object sender, EventArgs e)
 
         {
-
+            
             if (flag)
-            {
-                try { time_interval = Int32.Parse(textBox1.Text) * 60000; }
+            {      
+                try {
+                    timer.Interval = Convert.ToInt32(textBox1.Text) * 60000;
+                    ON.BackColor = Color.Green;
+                    flag = false;   
+                    timer.Start();
+                    label2.Text = "Enable";
+                }
                 catch
                 {
                     MessageBox.Show("попробуй целые числа");
                     flag = false;
 
-                }
-                timer.Interval = time_interval;
-                timer.Tick += Timer_Tick;
-                timer.Start();
-                ON.BackColor = Color.Green;
-                flag = false;
+                } 
 
             }
             else
             {
                 timer.Stop();
                 ON.BackColor = default(Color);
+                label2.Text = "Disable";
                 flag = true;
 
             }
@@ -110,5 +125,15 @@ namespace block_screensaver_form
             return ((t > 0) ? (t / 1000) : 0);
         }
 
+
+       
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Properties.Settings.Default.stime_interval = Convert.ToInt32(textBox1.Text);
+            Properties.Settings.Default.Save();
+        }
+
+        
     }
 }

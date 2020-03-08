@@ -2,8 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="block_screensaver_form.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="time_interval" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">300000</Value>
+    <Setting Name="stime_interval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

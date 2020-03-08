@@ -23,12 +23,15 @@ namespace block_screensaver_form.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("300000")]
-        public int time_interval {
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int stime_interval {
             get {
-                return ((int)(this["time_interval"]));
+                return ((int)(this["stime_interval"]));
+            }
+            set {
+                this["stime_interval"] = value;
             }
         }
     }
