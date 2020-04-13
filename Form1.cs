@@ -27,8 +27,8 @@ namespace block_screensaver_form
             timer = new Timer();
 
             timer.Tick += Timer_Tick;
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(pictureBox1, "sbalymov@yandex.ru\ngithub.com/sbalymov");
+            //ToolTip toolTip = new ToolTip();
+            //toolTip.SetToolTip(pictureBox1, "sbalymov@yandex.ru\ngithub.com/sbalymov");
 
         }
 
